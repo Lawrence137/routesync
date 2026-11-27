@@ -8,6 +8,13 @@
       "when": 1795758699389,
       "tag": "0000_lean_magdalene",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1795762492534,
+      "tag": "0001_odd_lady_bullseye",
+      "breakpoints": true
     }
   ]
 }

@@ -1,9 +1,9 @@
 import { config } from "dotenv";
-
 config({ path: ".env.local" });
 
 import { drizzle } from "drizzle-orm/neon-http";
-import * as schema from "./auth-schema";
+import * as authSchema from "./auth-schema";
+import * as appSchema from "./schema";
 
 const databaseUrl = process.env.DATABASE_URL;
 
@@ -12,5 +12,8 @@ if (!databaseUrl) {
 }
 
 export const db = drizzle(databaseUrl, {
-  schema,
+  schema: {
+    ...authSchema,
+    ...appSchema,
+  },
 });

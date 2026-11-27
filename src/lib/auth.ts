@@ -4,6 +4,14 @@ import { organization } from "better-auth/plugins";
 
 import { db } from "@/db";
 
+import {
+  ac,
+  owner,
+  admin,
+  dispatcher,
+  driver,
+} from "@/lib/permissions";
+
 export const auth = betterAuth({
   database: drizzleAdapter(db, {
     provider: "pg",
@@ -15,7 +23,15 @@ export const auth = betterAuth({
   },
 
   plugins: [
-    organization(),
+    organization({
+      ac,
+      roles: {
+        owner,
+        admin,
+        dispatcher,
+        driver,
+      },
+    }),
   ],
 
   trustedOrigins: [
