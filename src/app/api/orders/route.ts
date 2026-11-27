@@ -175,7 +175,9 @@ export async function POST(request: Request) {
 
       if (
         error.message === "FORBIDDEN" ||
-        error.message === "NO_ACTIVE_ORGANIZATION"
+        error.message === "NO_ACTIVE_ORGANIZATION" ||
+        error.message === "NOT_ORGANIZATION_MEMBER" ||
+        error.message === "MISSING_PERMISSION"
       ) {
         return NextResponse.json(
           { success: false, message: "Forbidden" },
