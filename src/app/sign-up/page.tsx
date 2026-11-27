@@ -31,7 +31,7 @@ export default function SignUpPage() {
         return;
       }
 
-      router.replace("/dashboard");
+      router.replace("/onboarding");
       router.refresh();
     } catch {
       setError("Something went wrong. Please try again.");
